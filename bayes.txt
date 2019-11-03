@@ -1,0 +1,21 @@
+ model{
+    for (r in 1:(k-1)) {
+        alpha0[r] ~ dnorm(0, 1.0E-1)
+    }
+    alpha <- sort(alpha0)
+	for(i in 1:n){
+		mu[i] <- inprod(X[i,],beta[]) 
+		logit(Q[i,1]) <- alpha[1]-mu[i]
+		P[i,1] <- Q[i,1]
+		for(j in 2:(k-1)){
+			logit(Q[i,j]) <- alpha[j]-mu[i]
+			P[i,j] <- Q[i,j] - Q[i,j-1]
+		}
+		P[i,k] <- 1 - Q[i,(k-1)]
+		y[i,] ~ dcat(P[i,1:k]) 
+	}
+    for (b in 1:p){ 
+		beta[b] ~ ddexp(0,lambda)
+	}             
+    lambda ~ dgamma(.1, .1)
+}
