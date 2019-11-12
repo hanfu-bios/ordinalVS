@@ -13,6 +13,8 @@ for(i in 1:length(args)){
 # A_list: vector of amplitude values, e.g., seq(0.2,1,0.2)
 # ncores: number of cores for parallel computing
 # nIteration: number of repetitive iterations
+# q_t1e: target Type I error rate level
+# rho: AR(1) correlation of design matrix
 
 ### method + statistic combination:
 # "glmnetcr" + "AIC" / "BIC" / "cv"
@@ -46,7 +48,7 @@ nClass = 3        # number of classes
 # rho = 0.5 # autocorrelation
 H <- abs(outer(1:p, 1:p, "-"))
 Sigma = rho^H
-q_t1e = 0.01       # target Type I Error
+# q_t1e = 0.01       # target Type I Error
 q_fdr = 0.2       # target FDR
 m = 100 # number of repeated experiments to get reference distribution
 
@@ -294,4 +296,4 @@ end.time = Sys.time()
 end.time - start.time
 
 if(length(A_list)==5) A = "" else A = 10*A_list
-save(results, file = paste("result1028", A, seed, method, statistic, rho, ".RData", sep = "_"))
+save(results, file = paste("result1028", A, seed, method, statistic, rho, q_t1e, ".RData", sep = "_"))
