@@ -1,0 +1,322 @@
+# glmnetcr_AIC
+R CMD BATCH '--args method="glmnetcr" statistic="AIC" seed=1234 A_list=seq(0.2,1,0.2) ncores=10 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R glmnetcr_AIC_1028.Rout
+
+# glmnetcr_BIC
+R CMD BATCH '--args method="glmnetcr" statistic="BIC" seed=1234 A_list=seq(0.2,1,0.2) ncores=10 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R glmnetcr_BIC_1028.Rout
+
+# glmnetcr_cv
+R CMD BATCH '--args method="glmnetcr" statistic="cv" seed=1234 A_list=seq(0.2,1,0.2) ncores=15 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R glmnetcr_cv_1028.Rout
+
+# mboost
+R CMD BATCH '--args method="mboost" statistic="mboost" seed=1234 A_list=seq(0.2,1,0.2) ncores=15 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R mboost_1028.Rout
+
+# marginal_Jonckheere
+R CMD BATCH '--args method="marginal" statistic="Jonckheere" seed=1234 A_list=seq(0.2,1,0.2) ncores=15 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R marginal_Jonckheere_1028.Rout
+
+# marginal_uni_cumulative
+R CMD BATCH '--args method="marginal" statistic="uni_cumulative" seed=1234 A_list=seq(0.2,1,0.2) ncores=15 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R marginal_uni_cumulative_1028.Rout
+
+# marginal_uni_sratio
+R CMD BATCH '--args method="marginal" statistic="uni_sratio" seed=1234 A_list=seq(0.2,1,0.2) ncores=15 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R marginal_uni_sratio_1028.Rout
+
+# rdvs_AIC
+R CMD BATCH '--args method="rdvs" statistic="AIC" seed=1234 A_list=seq(0.2,1,0.2) ncores=20 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R rdvs_AIC_1028.Rout
+
+# rdvs_BIC
+R CMD BATCH '--args method="rdvs" statistic="BIC" seed=1234 A_list=seq(0.2,1,0.2) ncores=20 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R rdvs_BIC_1028.Rout
+
+# rdvs_path
+R CMD BATCH '--args method="rdvs" statistic="path" seed=1234 A_list=seq(0.2,1,0.2) ncores=20 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R rdvs_path_1028.Rout
+
+# rdvs_cv
+R CMD BATCH '--args method="rdvs" statistic="cv" seed=1234 A_list=seq(0.2,1,0.2) ncores=20 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R rdvs_cv_1028.Rout
+
+# rdvs_mboost02
+R CMD BATCH '--args method="rdvs" statistic="mboost" seed=1234 A_list=0.2 ncores=25 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R rdvs_mboost02_1028.Rout
+
+# rdvs_mboost04
+R CMD BATCH '--args method="rdvs" statistic="mboost" seed=1234 A_list=0.4 ncores=25 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R rdvs_mboost04_1028.Rout
+
+# rdvs_mboost06
+R CMD BATCH '--args method="rdvs" statistic="mboost" seed=1234 A_list=0.6 ncores=25 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R rdvs_mboost06_1028.Rout
+
+# rdvs_mboost08
+R CMD BATCH '--args method="rdvs" statistic="mboost" seed=1234 A_list=0.8 ncores=25 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R rdvs_mboost08_1028.Rout
+
+# rdvs_mboost10
+R CMD BATCH '--args method="rdvs" statistic="mboost" seed=1234 A_list=1 ncores=25 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R rdvs_mboost10_1028.Rout
+
+# rdvs_randomForest02
+R CMD BATCH '--args method="rdvs" statistic="randomForest" seed=1234 A_list=0.2 ncores=25 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R rdvs_randomForest02_1028.Rout
+
+# rdvs_randomForest04
+R CMD BATCH '--args method="rdvs" statistic="randomForest" seed=1234 A_list=0.4 ncores=25 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R rdvs_randomForest04_1028.Rout
+
+# rdvs_randomForest06
+R CMD BATCH '--args method="rdvs" statistic="randomForest" seed=1234 A_list=0.6 ncores=25 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R rdvs_randomForest06_1028.Rout
+
+# rdvs_randomForest08
+R CMD BATCH '--args method="rdvs" statistic="randomForest" seed=1234 A_list=0.8 ncores=25 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R rdvs_randomForest08_1028.Rout
+
+# rdvs_randomForest10
+R CMD BATCH '--args method="rdvs" statistic="randomForest" seed=1234 A_list=1 ncores=25 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R rdvs_randomForest10_1028.Rout
+
+# knockoff_AIC
+R CMD BATCH '--args method="knockoff" statistic="AIC" seed=1234 A_list=seq(0.2,1,0.2) ncores=15 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R knockoff_AIC_1028.Rout
+
+# knockoff_BIC
+R CMD BATCH '--args method="knockoff" statistic="BIC" seed=1234 A_list=seq(0.2,1,0.2) ncores=15 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R knockoff_BIC_1028.Rout
+
+# knockoff_path
+R CMD BATCH '--args method="knockoff" statistic="path" seed=1234 A_list=seq(0.2,1,0.2) ncores=15 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R knockoff_path_1028.Rout
+
+# knockoff_cv
+R CMD BATCH '--args method="knockoff" statistic="cv" seed=1234 A_list=seq(0.2,1,0.2) ncores=15 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R knockoff_cv_1028.Rout
+
+# knockoff_mboost
+R CMD BATCH '--args method="knockoff" statistic="mboost" seed=1234 A_list=seq(0.2,1,0.2) ncores=15 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R knockoff_mboost_1028.Rout
+
+# knockoff_randomForest
+R CMD BATCH '--args method="knockoff" statistic="randomForest" seed=1234 A_list=seq(0.2,1,0.2) ncores=15 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R knockoff_randomForest_1028.Rout
+
+# knockoff_Bayesian02_1
+R CMD BATCH '--args method="knockoff" statistic="Bayesian" seed=1 A_list=0.2 ncores=10 nIteration=10 q_t1e=0.005 rho=0.5' all_in_one_simul.R knockoff_Bayesian02_1_1028.Rout
+
+# knockoff_Bayesian02_2
+R CMD BATCH '--args method="knockoff" statistic="Bayesian" seed=2 A_list=0.2 ncores=10 nIteration=10 q_t1e=0.005 rho=0.5' all_in_one_simul.R knockoff_Bayesian02_2_1028.Rout
+
+# knockoff_Bayesian02_3
+R CMD BATCH '--args method="knockoff" statistic="Bayesian" seed=3 A_list=0.2 ncores=10 nIteration=10 q_t1e=0.005 rho=0.5' all_in_one_simul.R knockoff_Bayesian02_3_1028.Rout
+
+# knockoff_Bayesian04_1
+R CMD BATCH '--args method="knockoff" statistic="Bayesian" seed=1 A_list=0.4 ncores=10 nIteration=10 q_t1e=0.005 rho=0.5' all_in_one_simul.R knockoff_Bayesian04_1_1028.Rout
+
+# knockoff_Bayesian04_2
+R CMD BATCH '--args method="knockoff" statistic="Bayesian" seed=2 A_list=0.4 ncores=10 nIteration=10 q_t1e=0.005 rho=0.5' all_in_one_simul.R knockoff_Bayesian04_2_1028.Rout
+
+# knockoff_Bayesian04_3
+R CMD BATCH '--args method="knockoff" statistic="Bayesian" seed=3 A_list=0.4 ncores=10 nIteration=10 q_t1e=0.005 rho=0.5' all_in_one_simul.R knockoff_Bayesian04_3_1028.Rout
+
+# knockoff_Bayesian06_1
+R CMD BATCH '--args method="knockoff" statistic="Bayesian" seed=1 A_list=0.6 ncores=10 nIteration=10 q_t1e=0.005 rho=0.5' all_in_one_simul.R knockoff_Bayesian06_1_1028.Rout
+
+# knockoff_Bayesian06_2
+R CMD BATCH '--args method="knockoff" statistic="Bayesian" seed=2 A_list=0.6 ncores=10 nIteration=10 q_t1e=0.005 rho=0.5' all_in_one_simul.R knockoff_Bayesian06_2_1028.Rout
+
+# knockoff_Bayesian06_3
+R CMD BATCH '--args method="knockoff" statistic="Bayesian" seed=3 A_list=0.6 ncores=10 nIteration=10 q_t1e=0.005 rho=0.5' all_in_one_simul.R knockoff_Bayesian06_3_1028.Rout
+
+# knockoff_Bayesian08_1
+R CMD BATCH '--args method="knockoff" statistic="Bayesian" seed=1 A_list=0.8 ncores=10 nIteration=10 q_t1e=0.005 rho=0.5' all_in_one_simul.R knockoff_Bayesian08_1_1028.Rout
+
+# knockoff_Bayesian08_2
+R CMD BATCH '--args method="knockoff" statistic="Bayesian" seed=2 A_list=0.8 ncores=10 nIteration=10 q_t1e=0.005 rho=0.5' all_in_one_simul.R knockoff_Bayesian08_2_1028.Rout
+
+# knockoff_Bayesian08_3
+R CMD BATCH '--args method="knockoff" statistic="Bayesian" seed=3 A_list=0.8 ncores=10 nIteration=10 q_t1e=0.005 rho=0.5' all_in_one_simul.R knockoff_Bayesian08_3_1028.Rout
+
+# knockoff_Bayesian10_1
+R CMD BATCH '--args method="knockoff" statistic="Bayesian" seed=1 A_list=1.0 ncores=10 nIteration=10 q_t1e=0.005 rho=0.5' all_in_one_simul.R knockoff_Bayesian10_1_1028.Rout
+
+# knockoff_Bayesian10_2
+R CMD BATCH '--args method="knockoff" statistic="Bayesian" seed=2 A_list=1.0 ncores=10 nIteration=10 q_t1e=0.005 rho=0.5' all_in_one_simul.R knockoff_Bayesian10_2_1028.Rout
+
+# knockoff_Bayesian10_3
+R CMD BATCH '--args method="knockoff" statistic="Bayesian" seed=3 A_list=1.0 ncores=10 nIteration=10 q_t1e=0.005 rho=0.5' all_in_one_simul.R knockoff_Bayesian10_3_1028.Rout
+
+############################################################################################
+
+# glmnetcr_AIC
+R CMD BATCH '--args method="glmnetcr" statistic="AIC" seed=1234 A_list=seq(0.2,1,0.2) ncores=10 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R glmnetcr_AIC_1028.Rout
+
+# glmnetcr_BIC
+R CMD BATCH '--args method="glmnetcr" statistic="BIC" seed=1234 A_list=seq(0.2,1,0.2) ncores=10 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R glmnetcr_BIC_1028.Rout
+
+# glmnetcr_cv
+R CMD BATCH '--args method="glmnetcr" statistic="cv" seed=1234 A_list=seq(0.2,1,0.2) ncores=15 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R glmnetcr_cv_1028.Rout
+
+# mboost
+R CMD BATCH '--args method="mboost" statistic="mboost" seed=1234 A_list=seq(0.2,1,0.2) ncores=15 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R mboost_1028.Rout
+
+# marginal_Jonckheere
+R CMD BATCH '--args method="marginal" statistic="Jonckheere" seed=1234 A_list=seq(0.2,1,0.2) ncores=15 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R marginal_Jonckheere_1028.Rout
+
+# marginal_uni_cumulative
+R CMD BATCH '--args method="marginal" statistic="uni_cumulative" seed=1234 A_list=seq(0.2,1,0.2) ncores=15 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R marginal_uni_cumulative_1028.Rout
+
+# marginal_uni_sratio
+R CMD BATCH '--args method="marginal" statistic="uni_sratio" seed=1234 A_list=seq(0.2,1,0.2) ncores=15 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R marginal_uni_sratio_1028.Rout
+
+# rdvs_AIC
+R CMD BATCH '--args method="rdvs" statistic="AIC" seed=1234 A_list=seq(0.2,1,0.2) ncores=20 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R rdvs_AIC_1028.Rout
+
+# rdvs_BIC
+R CMD BATCH '--args method="rdvs" statistic="BIC" seed=1234 A_list=seq(0.2,1,0.2) ncores=20 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R rdvs_BIC_1028.Rout
+
+# rdvs_path
+R CMD BATCH '--args method="rdvs" statistic="path" seed=1234 A_list=seq(0.2,1,0.2) ncores=20 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R rdvs_path_1028.Rout
+
+# rdvs_cv
+R CMD BATCH '--args method="rdvs" statistic="cv" seed=1234 A_list=seq(0.2,1,0.2) ncores=20 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R rdvs_cv_1028.Rout
+
+# rdvs_mboost02
+R CMD BATCH '--args method="rdvs" statistic="mboost" seed=1234 A_list=0.2 ncores=25 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R rdvs_mboost02_1102.Rout
+
+# rdvs_mboost04
+R CMD BATCH '--args method="rdvs" statistic="mboost" seed=1234 A_list=0.4 ncores=25 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R rdvs_mboost04_1102.Rout
+
+# rdvs_mboost06
+R CMD BATCH '--args method="rdvs" statistic="mboost" seed=1234 A_list=0.6 ncores=25 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R rdvs_mboost06_1102.Rout
+
+# rdvs_mboost08
+R CMD BATCH '--args method="rdvs" statistic="mboost" seed=1234 A_list=0.8 ncores=25 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R rdvs_mboost08_1102.Rout
+
+# rdvs_mboost10
+R CMD BATCH '--args method="rdvs" statistic="mboost" seed=1234 A_list=1 ncores=25 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R rdvs_mboost10_1102.Rout
+
+# rdvs_randomForest02
+R CMD BATCH '--args method="rdvs" statistic="randomForest" seed=1234 A_list=0.2 ncores=25 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R rdvs_randomForest02_1102.Rout
+
+# rdvs_randomForest04
+R CMD BATCH '--args method="rdvs" statistic="randomForest" seed=1234 A_list=0.4 ncores=25 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R rdvs_randomForest04_1102.Rout
+
+# rdvs_randomForest06
+R CMD BATCH '--args method="rdvs" statistic="randomForest" seed=1234 A_list=0.6 ncores=25 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R rdvs_randomForest06_1102.Rout
+
+# rdvs_randomForest08
+R CMD BATCH '--args method="rdvs" statistic="randomForest" seed=1234 A_list=0.8 ncores=25 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R rdvs_randomForest08_1102.Rout
+
+# rdvs_randomForest10
+R CMD BATCH '--args method="rdvs" statistic="randomForest" seed=1234 A_list=1 ncores=25 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R rdvs_randomForest10_1102.Rout
+
+# knockoff_AIC
+R CMD BATCH '--args method="knockoff" statistic="AIC" seed=1234 A_list=seq(0.2,1,0.2) ncores=15 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R knockoff_AIC_1028.Rout
+
+# knockoff_BIC
+R CMD BATCH '--args method="knockoff" statistic="BIC" seed=1234 A_list=seq(0.2,1,0.2) ncores=15 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R knockoff_BIC_1028.Rout
+
+# knockoff_path
+R CMD BATCH '--args method="knockoff" statistic="path" seed=1234 A_list=seq(0.2,1,0.2) ncores=15 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R knockoff_path_1028.Rout
+
+# knockoff_cv
+R CMD BATCH '--args method="knockoff" statistic="cv" seed=1234 A_list=seq(0.2,1,0.2) ncores=15 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R knockoff_cv_1028.Rout
+
+# knockoff_mboost
+R CMD BATCH '--args method="knockoff" statistic="mboost" seed=1234 A_list=seq(0.2,1,0.2) ncores=15 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R knockoff_mboost_1028.Rout
+
+# knockoff_randomForest
+R CMD BATCH '--args method="knockoff" statistic="randomForest" seed=1234 A_list=seq(0.2,1,0.2) ncores=15 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R knockoff_randomForest_1028.Rout
+
+# knockoff_Bayesian02_1
+R CMD BATCH '--args method="knockoff" statistic="Bayesian" seed=1 A_list=0.2 ncores=10 nIteration=10 q_t1e=0.005 rho=0.2' all_in_one_simul.R knockoff_Bayesian02_1_1028.Rout
+
+# knockoff_Bayesian02_2
+R CMD BATCH '--args method="knockoff" statistic="Bayesian" seed=2 A_list=0.2 ncores=10 nIteration=10 q_t1e=0.005 rho=0.2' all_in_one_simul.R knockoff_Bayesian02_2_1028.Rout
+
+# knockoff_Bayesian02_3
+R CMD BATCH '--args method="knockoff" statistic="Bayesian" seed=3 A_list=0.2 ncores=10 nIteration=10 q_t1e=0.005 rho=0.2' all_in_one_simul.R knockoff_Bayesian02_3_1028.Rout
+
+# knockoff_Bayesian04_1
+R CMD BATCH '--args method="knockoff" statistic="Bayesian" seed=1 A_list=0.4 ncores=10 nIteration=10 q_t1e=0.005 rho=0.2' all_in_one_simul.R knockoff_Bayesian04_1_1028.Rout
+
+# knockoff_Bayesian04_2
+R CMD BATCH '--args method="knockoff" statistic="Bayesian" seed=2 A_list=0.4 ncores=10 nIteration=10 q_t1e=0.005 rho=0.2' all_in_one_simul.R knockoff_Bayesian04_2_1028.Rout
+
+# knockoff_Bayesian04_3
+R CMD BATCH '--args method="knockoff" statistic="Bayesian" seed=3 A_list=0.4 ncores=10 nIteration=10 q_t1e=0.005 rho=0.2' all_in_one_simul.R knockoff_Bayesian04_3_1028.Rout
+
+# knockoff_Bayesian06_1
+R CMD BATCH '--args method="knockoff" statistic="Bayesian" seed=1 A_list=0.6 ncores=10 nIteration=10 q_t1e=0.005 rho=0.2' all_in_one_simul.R knockoff_Bayesian06_1_1028.Rout
+
+# knockoff_Bayesian06_2
+R CMD BATCH '--args method="knockoff" statistic="Bayesian" seed=2 A_list=0.6 ncores=10 nIteration=10 q_t1e=0.005 rho=0.2' all_in_one_simul.R knockoff_Bayesian06_2_1028.Rout
+
+# knockoff_Bayesian06_3
+R CMD BATCH '--args method="knockoff" statistic="Bayesian" seed=3 A_list=0.6 ncores=10 nIteration=10 q_t1e=0.005 rho=0.2' all_in_one_simul.R knockoff_Bayesian06_3_1028.Rout
+
+# knockoff_Bayesian08_1
+R CMD BATCH '--args method="knockoff" statistic="Bayesian" seed=1 A_list=0.8 ncores=10 nIteration=10 q_t1e=0.005 rho=0.2' all_in_one_simul.R knockoff_Bayesian08_1_1028.Rout
+
+# knockoff_Bayesian08_2
+R CMD BATCH '--args method="knockoff" statistic="Bayesian" seed=2 A_list=0.8 ncores=10 nIteration=10 q_t1e=0.005 rho=0.2' all_in_one_simul.R knockoff_Bayesian08_2_1028.Rout
+
+# knockoff_Bayesian08_3
+R CMD BATCH '--args method="knockoff" statistic="Bayesian" seed=3 A_list=0.8 ncores=10 nIteration=10 q_t1e=0.005 rho=0.2' all_in_one_simul.R knockoff_Bayesian08_3_1028.Rout
+
+# knockoff_Bayesian10_1
+R CMD BATCH '--args method="knockoff" statistic="Bayesian" seed=1 A_list=1.0 ncores=10 nIteration=10 q_t1e=0.005 rho=0.2' all_in_one_simul.R knockoff_Bayesian10_1_1028.Rout
+
+# knockoff_Bayesian10_2
+R CMD BATCH '--args method="knockoff" statistic="Bayesian" seed=2 A_list=1.0 ncores=10 nIteration=10 q_t1e=0.005 rho=0.2' all_in_one_simul.R knockoff_Bayesian10_2_1028.Rout
+
+# knockoff_Bayesian10_3
+R CMD BATCH '--args method="knockoff" statistic="Bayesian" seed=3 A_list=1.0 ncores=10 nIteration=10 q_t1e=0.005 rho=0.2' all_in_one_simul.R knockoff_Bayesian10_3_1028.Rout
+
+
+
+
+
+
+
+
+
+################################ real data #####################################
+
+
+
+# glmnetcr_AIC
+R CMD BATCH '--args method="glmnetcr" statistic="AIC" q_t1e=0.005 ncores=1' all_in_one.R real_glmnetcr_AIC_1028.Rout
+
+# glmnetcr_BIC
+R CMD BATCH '--args method="glmnetcr" statistic=“BIC" q_t1e=0.005 ncores=1' all_in_one.R real_glmnetcr_BIC_1028.Rout
+
+# glmnetcr_cv
+R CMD BATCH '--args method="glmnetcr" statistic="cv" q_t1e=0.005 ncores=1' all_in_one.R real_glmnetcr_cv_1028.Rout
+
+# mboost
+R CMD BATCH '--args method="mboost" statistic="cv" q_t1e=0.005 ncores=1' all_in_one.R real_mboost_1028.Rout
+
+# marginal_Jonckheere
+R CMD BATCH '--args method="marginal" statistic="Jonckheere" q_t1e=0.005 ncores=1' all_in_one.R real_marginal_Jonckheere_1028.Rout
+
+# marginal_uni_cumulative
+R CMD BATCH '--args method="marginal" statistic="uni_cumulative" ncores=1' all_in_one.R real_marginal_uni_cumulative_1028.Rout
+
+# marginal_uni_sratio
+R CMD BATCH '--args method="marginal" statistic="uni_sratio" q_t1e=0.005 ncores=1' all_in_one.R real_marginal_uni_sratio_1028.Rout
+
+# rdvs_AIC
+R CMD BATCH '--args method="rdvs" statistic="AIC" q_t1e=0.005 ncores=20' all_in_one.R real_rdvs_AIC_1028.Rout
+
+# rdvs_BIC
+R CMD BATCH '--args method="rdvs" statistic="BIC" q_t1e=0.005 ncores=20' all_in_one.R real_rdvs_BIC_1028.Rout
+
+# rdvs_path
+R CMD BATCH '--args method="rdvs" statistic="path" q_t1e=0.005 ncores=20' all_in_one.R real_rdvs_path_1028.Rout
+
+# rdvs_cv
+R CMD BATCH '--args method="rdvs" statistic="cv" q_t1e=0.005 ncores=20' all_in_one.R real_rdvs_cv_1028.Rout
+
+# rdvs_mboost
+R CMD BATCH '--args method="rdvs" statistic="mboost" q_t1e=0.005 ncores=25' all_in_one.R real_rdvs_mboost_1028.Rout
+
+# rdvs_randomForest
+R CMD BATCH '--args method="rdvs" statistic="randomForest" q_t1e=0.005 ncores=25' all_in_one.R real_rdvs_randomForest_1028.Rout
+
+# knockoff_AIC
+R CMD BATCH '--args method="knockoff" statistic="AIC" q_t1e=0.005 ncores=1’ all_in_one.R real_knockoff_AIC_1028.Rout
+
+# knockoff_BIC
+R CMD BATCH '--args method="knockoff" statistic="BIC" q_t1e=0.005 ncores=1' all_in_one.R real_knockoff_BIC_1028.Rout
+
+# knockoff_path
+R CMD BATCH '--args method="knockoff" statistic="path" q_t1e=0.005 ncores=1' all_in_one.R real_knockoff_path_1028.Rout
+
+# knockoff_cv
+R CMD BATCH '--args method="knockoff" statistic="cv" q_t1e=0.005 ncores=1' all_in_one.R real_knockoff_cv_1028.Rout
+
+# knockoff_mboost
+R CMD BATCH '--args method="knockoff" statistic="mboost" q_t1e=0.005 ncores=1' all_in_one.R real_knockoff_mboost_1028.Rout
+
+# knockoff_randomForest
+R CMD BATCH '--args method="knockoff" statistic="randomForest" q_t1e=0.005 ncores=1' all_in_one.R real_knockoff_randomForest_1028.Rout
