@@ -42,7 +42,7 @@ for (r in 1:2){
       lines(seq(0.2,1,0.2), res[i,]*100, col = col[stat_index[j]], lty = stat_index[j], lwd = 2.5)
     }
     if (i==2) {
-      legend("top", legend = statistic[stat_index], cex=1, col=col[stat_index], lwd = 2.5, lty=stat_index, bty = "n", y.intersp = 0.5)
+      legend("top", legend = c("Jonckheere", "Univariate CL", "Univariate CR"), cex=1, col=col[stat_index], lwd = 2.5, lty=stat_index, bty = "n", y.intersp = 0.5)
       if (r==2) {title(expression(bold(paste(rho, "=", 0.5))))
       } else {title(expression(bold(paste(rho, "=", 0.2))))}
     }
@@ -139,16 +139,20 @@ for(i in 1:length(file_name)){
   selection = str_extract(selection, "[^_]+")
   selected_compare[,i] = selected_genes %in% selection
 }
-colnames(selected_compare) <- c(paste("glmnetcr",statistic[c(1,2,4)],sep = "+"),"mboost",
-                                paste("marginal",statistic[8:10],sep = "+"),
-                                paste("rdvs",statistic[1:6],sep = "+"),
-                                paste("knockoff",statistic[1:6],sep = "+"))
+colnames(selected_compare) <- c(paste("L1 penalized CR",statistic[c(1,2,4)],sep = "+"),"mboost",
+                                paste("Marginal",c("Jonckheere", "CL", "CR")),
+                                paste("RDVS",statistic[1:6],sep = "+"),
+                                paste("Knockoff",statistic[1:6],sep = "+"))
 rownames(selected_compare) <- selected_genes
 ordered_genes = order(rowSums(selected_compare), decreasing = TRUE)
 selected_compare = selected_compare[ordered_genes,]
 selected_compare = selected_compare[rowSums(selected_compare)>4,colSums(selected_compare)>0]
 nr = nrow(selected_compare)
 nc = ncol(selected_compare)
+percent = format(apply(selected_compare,2,function(a){
+  b = a[a==1];round(sum(names(b)%in%site_previous)/length(b)*100,1)}), nsmall = 1)
+method_order = order(percent, decreasing = T)
+selected_compare = selected_compare[,method_order]
 par(mfrow = c(1,1), mai = c(1,1.8,0.8,0.8)+0.02)
 plot(0, xaxt='n', yaxt='n',xlab = "",ylab = "", xlim = c(2.2,nr-1.2),ylim=c(1.1,nc-0.2),pch=NA)
 for (i in which(row.names(selected_compare) %in% site_previous))
@@ -159,10 +163,8 @@ axis(1, at = 1:nr, selected_genes[ordered_genes][1:nr],las = 2, cex.axis=1, tick
 axis(2, at = nc:1, colnames(selected_compare),las = 2,cex.axis=1, tick = F, line = -0.5,font = 2)
 for (i in 0:(nr-1)+0.5) abline(v = i, lty = 2, col = "gray50")
 for (i in 1:nc+0.5) abline(h = i, lty = 2, col = "gray50")
-percent = format(apply(selected_compare,2,function(a){
-  b = a[a==1];round(sum(names(b)%in%site_previous)/length(b)*100,1)}), nsmall = 1)
 # for(i in (nc:1)) mtext(paste(percent[nc+1-i],"%"),side = 4, line = 2,at = i,adj=1)
-text(x = rep(nr+2), y = (nc:1), labels = paste(percent,"%"), xpd = NA,cex = 0.7,font=2)
+text(x = rep(nr+2), y = (nc:1), labels = paste(percent[method_order],"%"), xpd = NA,cex = 0.7,font=2)
 dev2bitmap("../../../manuscript/Submission to BIB/revised figures/Figure5.jpeg", type = "jpeg", 
            res = 600, height = 5.48, width=13)
 
