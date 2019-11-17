@@ -72,6 +72,7 @@ for (r in 1:2){
       } else {load(paste("rho02/result1028__1234",method[j], statistic[stat_index][j], "0.2", ".RData", sep = "_"))}
       res = sapply(results, rowMeans)[c(1,3,2),]
       lines(seq(0.2,1,0.2), res[i,]*100, col = col[stat_index[j]], lty = stat_index[j], lwd = 2.5)
+      if (i ==3) print(res[i,]*100)
     }
     if (i==2) {
       legend("top", legend = statistic[stat_index], cex=1, col=col[stat_index], lwd = 2.5, lty=stat_index, bty = "n", y.intersp = 0.5)
@@ -109,11 +110,21 @@ dev2bitmap("../../../manuscript/Submission to BIB/revised figures/Figure4.jpeg",
 
 
 ######### real data #########
-site_previous = c("ALOX12","CD81","RARRES1","SOX17","BCR","GP1BB","ALOX12","DDIT3","ACVR1","KCNK4",
+site_inc = c("ALOX12","CD81","RARRES1","SOX17","BCR","GP1BB","ALOX12","DDIT3","ACVR1","KCNK4",
                   "SNCG","HOXB2","EPHX1","ELK3","COL1A1","NEFL","PADI4","ABCC2","FLT3","HS3ST2",
                   "BCR","HOXA5","ASCL2","TSC2","PLAT","EYA4","SERPINA5","PITX2","SERPINE1","HOXA9",
                   "CFTR","LIG3","DBC1","IGF1","TAL1","FES","CALCA","CRIP1","APOA1","MMP14","SLC22A3",
                   "SMARCB1","CRK","TNK1","HOXA5","DLK1","NAT2","TES","ASCL2","GRB10")
+site_dec = c("IL8","CREB1","HLA-DPB1","TIAM1","NOTCH4","ST6GAL1","TIAM1","ESR1","HLA-DPA1","GSTP1",
+             "HLA-DPA1","ESR1","HDAC9","PDGFRB","ESR1","NQO1","TNF","RASSF1","TIMP1","DAB2IP","DLC1",
+             "DLC1","MPO","ERN1","GSTM2","IGF2","TGFB2","DAB2IP","KLK10","CPA4","HTR2A","HLA-DRA",
+             "TNFSF8","IGF2","PDGFRB","PRKCDBP","SPP1","GSTM2","GPC3","S100A4","STAT5A","IL16","IL6",
+             "DNASE1L1","MYLK","DNASE1L1","SPARC","ZMYND10","CAPG","IGF2","MMP7","SH3BP2","IL18BP",
+             "SH3BP2","COMT","FABP3","S100A2","G6PD","BMP4","IFNG","IL10","TEK","PDGFRB","OSM","PTPRH",
+             "PYCARD","MFAP4","RIPK3","COL18A1","CD2","VAV1","SEPT9","HDAC1","MPL","HLA-DOA","EVI2A",
+             "ARHGDIB","IL16","CD9","PSCA","DLC1","LIF","BMP4","EFNB1","MST1R","AOC3","FGF2","GJB2",
+             "LTB4R","TNFRSF10A","ZAP70","CD34","PTK6","GABRA5"
+)
 
 ### real data
 
@@ -150,13 +161,15 @@ selected_compare = selected_compare[rowSums(selected_compare)>4,colSums(selected
 nr = nrow(selected_compare)
 nc = ncol(selected_compare)
 percent = format(apply(selected_compare,2,function(a){
-  b = a[a==1];round(sum(names(b)%in%site_previous)/length(b)*100,1)}), nsmall = 1)
+  b = a[a==1];round(sum(names(b)%in%c(site_inc,site_dec))/length(b)*100,1)}), nsmall = 1)
 method_order = order(percent, decreasing = T)
 selected_compare = selected_compare[,method_order]
 par(mfrow = c(1,1), mai = c(1,1.8,0.8,0.8)+0.02)
 plot(0, xaxt='n', yaxt='n',xlab = "",ylab = "", xlim = c(2.2,nr-1.2),ylim=c(1.1,nc-0.2),pch=NA)
-for (i in which(row.names(selected_compare) %in% site_previous))
-  polygon(c(i-0.5,i-0.5,i+0.5,i+0.5),c(0.5,(nr+0.5),(nr+0.5),0.5), col = "lightgrey", border = NA)
+for (i in which(row.names(selected_compare) %in% site_inc))
+  polygon(c(i-0.5,i-0.5,i+0.5,i+0.5),c(0.5,(nr+0.5),(nr+0.5),0.5), col = "lightpink", border = NA)
+for (i in which(row.names(selected_compare) %in% site_dec))
+  polygon(c(i-0.5,i-0.5,i+0.5,i+0.5),c(0.5,(nr+0.5),(nr+0.5),0.5), col = "lightblue", border = NA)
 points(which(selected_compare==1,arr.ind = TRUE)[,1], nc+1-which(selected_compare==1,arr.ind = TRUE)[,2],
        pch = 4,lwd=1.5)
 axis(1, at = 1:nr, selected_genes[ordered_genes][1:nr],las = 2, cex.axis=1, tick = F, line = -0.5,font = 2)
