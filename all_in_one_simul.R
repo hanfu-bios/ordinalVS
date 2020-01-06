@@ -8,20 +8,19 @@ for(i in 1:length(args)){
 ### need to input:
 # method = c("glmnetcr", "mboost", "marginal", "rdvs", "knockoff")
 # statistic = c("AIC", "BIC", "path", "mboost", "Bayesian", "Jonckheere", "uni_cumulative", "uni_sratio",
-# "cv", "randomForest")
+# "cv", "ordinalForest")
 # seed: random seed, e.g., 1234
 # A_list: vector of amplitude values, e.g., seq(0.2,1,0.2)
 # ncores: number of cores for parallel computing
 # nIteration: number of repetitive iterations
-# q_t1e: target Type I error rate level
 # rho: AR(1) correlation of design matrix
 
 ### method + statistic combination:
 # "glmnetcr" + "AIC" / "BIC" / "cv"
 # "mboost"  + "mboost"
 # "marginal" + "Jonckheere" / "uni_cumulative" / "uni_sratio"
-# "rdvs" + "AIC" / "BIC" / "path" / "cv" / "mboost" / "randomForest"
-# "knockoff" + "AIC" / "BIC" / "path" / "cv" / "mboost" / "Bayesian" / "randomForest"
+# "rdvs" + "AIC" / "BIC" / "path" / "cv" / "mboost" / "ordinalForest"
+# "knockoff" + "AIC" / "BIC" / "path" / "cv" / "mboost" / "Bayesian" / "ordinalForest"
 
 if(statistic == "Bayesian") options("expressions"=100000)
 
@@ -169,6 +168,11 @@ RF_stat <- function(X, y){
   Z = model$varimp
 }
 
+ks_test <- function(x, y){
+  test = ks.test(x, y, alternative = "less", exact = F)
+  return(test$p.value)
+}
+
 fdp <- function(selected, nonzero) {
   if (length(selected)==0) return(0)
   else return(sum(!selected %in% nonzero) / max(1, length(selected)))
@@ -177,11 +181,6 @@ fdp <- function(selected, nonzero) {
 power <- function(selected, nonzero) {
   if (length(selected)==0) return(0)
   else return(sum(selected %in% nonzero) / nTrue)
-}
-
-type1Error <- function(selected, nonzero){
-  if (length(selected)==0) return(0)
-  else return(sum(!selected %in% nonzero) / (p-nTrue))
 }
 
 #### MAIN ####
@@ -235,15 +234,25 @@ iter <- function(A, method, statistic){
                  "cv" = cv_stat(Xaug, y),
                  "mboost" = mboost_stat(Xaug, y),
                  # "Bayesian" = bayes_stat(Xaug, y, parallel = F), # not calculated due to efficiency
-                 "randomForest" = RF_stat(Xaug, y)))  # m * (p+1)
+                 "ordinalForest" = RF_stat(Xaug, y)))  # m * (p+1)
     }
     # if(statistic == "Bayesian"){
     #   PSRF = Z[,ncol(Z)] # length m
     #   Z = Z[,-ncol(Z)]
     # }
+    ### 1
+    # W = colMeans(Z[,1:p])
+    # T1 = quantile(Z[,p+1], probs=1-q_t1e)
+    # selected = (1:p)[W > T1]
+    ### 2
+    # pval = sapply(1:p, function(i) ks_test(Z[,i], Z[,p+1]))
+    # pval_adj = p.adjust(pval, method = "BH")
+    # selected = (1:p)[pval_adj < q_fdr]
+    ### 3
     W = colMeans(Z[,1:p])
-    T1 = quantile(Z[,p+1], probs=1-q_t1e)
-    selected = (1:p)[W > T1]
+    pval = 1-sapply(W, function(x) ecdf(Z[,p+1])(x))
+    pval_adj = p.adjust(pval, method = "BY")
+    selected = (1:p)[pval_adj < q_fdr]
   }
   
   ####
@@ -257,7 +266,7 @@ iter <- function(A, method, statistic){
                "cv" = cv_stat(Xaug, y),
                "mboost" = mboost_stat(Xaug, y),
                "Bayesian" = bayes_stat(Xaug, y, parallel = T),
-               "randomForest" = RF_stat(Xaug, y))
+               "ordinalForest" = RF_stat(Xaug, y))
     if(statistic == "Bayesian"){
       PSRF = Z[length(Z)]
       Z = Z[-length(Z)]
@@ -268,9 +277,9 @@ iter <- function(A, method, statistic){
     selected = (1:p)[W > T1]
   }
   
-  output = matrix(c(fdp(selected, nonzero), power(selected, nonzero), type1Error(selected, nonzero)), 
+  output = matrix(c(fdp(selected, nonzero), power(selected, nonzero)), 
                   ncol = 1)
-  rownames(output) = c("FDP","Power","Type1Error")
+  rownames(output) = c("FDP","Power")
   if (statistic == "Bayesian") colnames(output) = PSRF
   return(output)
 }
@@ -296,4 +305,4 @@ end.time = Sys.time()
 end.time - start.time
 
 if(length(A_list)==5) A = "" else A = 10*A_list
-save(results, file = paste("result1028", A, seed, method, statistic, rho, q_t1e, ".RData", sep = "_"))
+save(results, file = paste("result1222", A, seed, method, statistic, rho, ".RData", sep = "_"))

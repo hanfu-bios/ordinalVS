@@ -8,7 +8,7 @@ for(i in 1:length(args)){
 ### need to input:
 # method = c("glmnetcr", "mboost", "marginal", "rdvs", "knockoff")
 # statistic = c("AIC", "BIC", "path", "mboost", "Bayesian", "Jonckheere", "uni_cumulative", "uni_sratio",
-# "cv", "randomForest")
+# "cv", "ordinalForest")
 # ncores: number of cores for parallel computing
 # q_t1e: target Type I Error
 
@@ -16,8 +16,8 @@ for(i in 1:length(args)){
 # "glmnetcr" + "AIC" / "BIC" / "cv"
 # "mboost"  + "mboost"
 # "marginal" + "Jonckheere" / "uni_cumulative" / "uni_sratio"
-# "rdvs" + "AIC" / "BIC" / "path" / "cv" / "mboost" / "randomForest"
-# "knockoff" + "AIC" / "BIC" / "path" / "cv" / "mboost" / "Bayesian" / "randomForest"
+# "rdvs" + "AIC" / "BIC" / "path" / "cv" / "mboost" / "ordinalForest"
+# "knockoff" + "AIC" / "BIC" / "path" / "cv" / "mboost" / "Bayesian" / "ordinalForest"
 
 if(statistic == "Bayesian") options("expressions"=100000)
 
@@ -35,19 +35,18 @@ library(VGAM)
 
 set.seed(1234)
 
-load("LiverSamples.RData")   # n = 56, p = 1505 (1413 after removing NA and low sd)
-X = t(exprs(data))
-# feature_keep_ind = apply(X, 2, function(x) !any(is.na(x))) & (apply(X, 2, sd)>0.01)
-feature_keep_ind = apply(X, 2, function(x) !any(is.na(x))) & (colMeans(X)<=0.95) & (colMeans(X)>=0.05)
-X = X[,feature_keep_ind]
-gene_name[[3]] = featureData(data)@data$ID[feature_keep_ind]
-y <- factor(pData(data)$TissueType, c("Normal", "Cirrhosis non-HCC", "Tumor"), ordered=TRUE)
+# load("LiverSamples.RData")   # n = 56, p = 1505 (1413 after removing NA and low sd)
+# X = t(exprs(data))
+# feature_keep_ind = apply(X, 2, function(x) !any(is.na(x))) & (colMeans(X)<=0.95) & (colMeans(X)>=0.05)
+# X = X[,feature_keep_ind]
+# gene_name[[3]] = featureData(data)@data$ID[feature_keep_ind]
+# y <- factor(pData(data)$TissueType, c("Normal", "Cirrhosis non-HCC", "Tumor"), ordered=TRUE)
 # data = list(X = X, y = y)
 
 
-# load("LiverSamples.RData")
-# X = data$X
-# y = data$y
+load("LiverSamples.RData")
+X = data$X
+y = data$y
 n = nrow(X)
 p = ncol(X)
 # ncores = 28
@@ -211,11 +210,21 @@ main <- function(method, statistic){
                     "cv" = cv_stat(Xaug, y),
                     "mboost" = mboost_stat(Xaug, y),
                     # "Bayesian" = bayes_stat(Xaug, y, parallel = F), # not calculated due to efficiency
-                    "randomForest" = RF_stat(Xaug, y)))  # m * (p+1)
+                    "ordinalForest" = RF_stat(Xaug, y)))  # m * (p+1)
     }
+    ### 1
+    # W = colMeans(Z[,1:p])
+    # T1 = quantile(Z[,p+1], probs=1-q_t1e)
+    # selected = (1:p)[W > T1]
+    ### 2
+    # pval = sapply(1:p, function(i) ks_test(Z[,i], Z[,p+1]))
+    # pval_adj = p.adjust(pval, method = "BH")
+    # selected = (1:p)[pval_adj < q_fdr]
+    ### 3
     W = colMeans(Z[,1:p])
-    T1 = quantile(Z[,p+1], probs=1-q_t1e)
-    selected = (1:p)[W > T1]
+    pval = 1-sapply(W, function(x) ecdf(Z[,p+1])(x))
+    pval_adj = p.adjust(pval, method = "BY")
+    selected = (1:p)[pval_adj < q_fdr]
   }
   
   ####
@@ -229,7 +238,7 @@ main <- function(method, statistic){
                "cv" = cv_stat(Xaug, y),
                "mboost" = mboost_stat(Xaug, y),
                "Bayesian" = bayes_stat(Xaug, y, parallel = T),
-               "randomForest" = RF_stat(Xaug, y))
+               "ordinalForest" = RF_stat(Xaug, y))
     orig = 1:p
     W = Z[orig] - Z[orig+p]
     T1 = knockoff.threshold(W, fdr = q_fdr, offset = 1)  # data-dependent threshold
