@@ -46,20 +46,20 @@ R CMD BATCH '--args method="rdvs" statistic="mboost" seed=1234 A_list=0.8 ncores
 # rdvs_mboost10
 R CMD BATCH '--args method="rdvs" statistic="mboost" seed=1234 A_list=1 ncores=25 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R rdvs_mboost10_1028.Rout
 
-# rdvs_randomForest02
-R CMD BATCH '--args method="rdvs" statistic="randomForest" seed=1234 A_list=0.2 ncores=25 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R rdvs_randomForest02_1028.Rout
+# rdvs_ordinalForest02
+R CMD BATCH '--args method="rdvs" statistic="ordinalForest" seed=1234 A_list=0.2 ncores=25 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R rdvs_ordinalForest02_1028.Rout
 
-# rdvs_randomForest04
-R CMD BATCH '--args method="rdvs" statistic="randomForest" seed=1234 A_list=0.4 ncores=25 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R rdvs_randomForest04_1028.Rout
+# rdvs_ordinalForest04
+R CMD BATCH '--args method="rdvs" statistic="ordinalForest" seed=1234 A_list=0.4 ncores=25 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R rdvs_ordinalForest04_1028.Rout
 
-# rdvs_randomForest06
-R CMD BATCH '--args method="rdvs" statistic="randomForest" seed=1234 A_list=0.6 ncores=25 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R rdvs_randomForest06_1028.Rout
+# rdvs_ordinalForest06
+R CMD BATCH '--args method="rdvs" statistic="ordinalForest" seed=1234 A_list=0.6 ncores=25 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R rdvs_ordinalForest06_1028.Rout
 
-# rdvs_randomForest08
-R CMD BATCH '--args method="rdvs" statistic="randomForest" seed=1234 A_list=0.8 ncores=25 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R rdvs_randomForest08_1028.Rout
+# rdvs_ordinalForest08
+R CMD BATCH '--args method="rdvs" statistic="ordinalForest" seed=1234 A_list=0.8 ncores=25 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R rdvs_ordinalForest08_1028.Rout
 
-# rdvs_randomForest10
-R CMD BATCH '--args method="rdvs" statistic="randomForest" seed=1234 A_list=1 ncores=25 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R rdvs_randomForest10_1028.Rout
+# rdvs_ordinalForest10
+R CMD BATCH '--args method="rdvs" statistic="ordinalForest" seed=1234 A_list=1 ncores=25 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R rdvs_ordinalForest10_1028.Rout
 
 # knockoff_AIC
 R CMD BATCH '--args method="knockoff" statistic="AIC" seed=1234 A_list=seq(0.2,1,0.2) ncores=15 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R knockoff_AIC_1028.Rout
@@ -76,8 +76,8 @@ R CMD BATCH '--args method="knockoff" statistic="cv" seed=1234 A_list=seq(0.2,1,
 # knockoff_mboost
 R CMD BATCH '--args method="knockoff" statistic="mboost" seed=1234 A_list=seq(0.2,1,0.2) ncores=15 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R knockoff_mboost_1028.Rout
 
-# knockoff_randomForest
-R CMD BATCH '--args method="knockoff" statistic="randomForest" seed=1234 A_list=seq(0.2,1,0.2) ncores=15 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R knockoff_randomForest_1028.Rout
+# knockoff_ordinalForest
+R CMD BATCH '--args method="knockoff" statistic="ordinalForest" seed=1234 A_list=seq(0.2,1,0.2) ncores=15 nIteration=30 q_t1e=0.005 rho=0.5' all_in_one_simul.R knockoff_ordinalForest_1028.Rout
 
 # knockoff_Bayesian02_1
 R CMD BATCH '--args method="knockoff" statistic="Bayesian" seed=1 A_list=0.2 ncores=10 nIteration=10 q_t1e=0.005 rho=0.5' all_in_one_simul.R knockoff_Bayesian02_1_1028.Rout
@@ -174,20 +174,20 @@ R CMD BATCH '--args method="rdvs" statistic="mboost" seed=1234 A_list=0.8 ncores
 # rdvs_mboost10
 R CMD BATCH '--args method="rdvs" statistic="mboost" seed=1234 A_list=1 ncores=25 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R rdvs_mboost10_1102.Rout
 
-# rdvs_randomForest02
-R CMD BATCH '--args method="rdvs" statistic="randomForest" seed=1234 A_list=0.2 ncores=25 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R rdvs_randomForest02_1102.Rout
+# rdvs_ordinalForest02
+R CMD BATCH '--args method="rdvs" statistic="ordinalForest" seed=1234 A_list=0.2 ncores=25 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R rdvs_ordinalForest02_1102.Rout
 
-# rdvs_randomForest04
-R CMD BATCH '--args method="rdvs" statistic="randomForest" seed=1234 A_list=0.4 ncores=25 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R rdvs_randomForest04_1102.Rout
+# rdvs_ordinalForest04
+R CMD BATCH '--args method="rdvs" statistic="ordinalForest" seed=1234 A_list=0.4 ncores=25 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R rdvs_ordinalForest04_1102.Rout
 
-# rdvs_randomForest06
-R CMD BATCH '--args method="rdvs" statistic="randomForest" seed=1234 A_list=0.6 ncores=25 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R rdvs_randomForest06_1102.Rout
+# rdvs_ordinalForest06
+R CMD BATCH '--args method="rdvs" statistic="ordinalForest" seed=1234 A_list=0.6 ncores=25 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R rdvs_ordinalForest06_1102.Rout
 
-# rdvs_randomForest08
-R CMD BATCH '--args method="rdvs" statistic="randomForest" seed=1234 A_list=0.8 ncores=25 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R rdvs_randomForest08_1102.Rout
+# rdvs_ordinalForest08
+R CMD BATCH '--args method="rdvs" statistic="ordinalForest" seed=1234 A_list=0.8 ncores=25 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R rdvs_ordinalForest08_1102.Rout
 
-# rdvs_randomForest10
-R CMD BATCH '--args method="rdvs" statistic="randomForest" seed=1234 A_list=1 ncores=25 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R rdvs_randomForest10_1102.Rout
+# rdvs_ordinalForest10
+R CMD BATCH '--args method="rdvs" statistic="ordinalForest" seed=1234 A_list=1 ncores=25 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R rdvs_ordinalForest10_1102.Rout
 
 # knockoff_AIC
 R CMD BATCH '--args method="knockoff" statistic="AIC" seed=1234 A_list=seq(0.2,1,0.2) ncores=15 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R knockoff_AIC_1028.Rout
@@ -204,8 +204,8 @@ R CMD BATCH '--args method="knockoff" statistic="cv" seed=1234 A_list=seq(0.2,1,
 # knockoff_mboost
 R CMD BATCH '--args method="knockoff" statistic="mboost" seed=1234 A_list=seq(0.2,1,0.2) ncores=15 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R knockoff_mboost_1028.Rout
 
-# knockoff_randomForest
-R CMD BATCH '--args method="knockoff" statistic="randomForest" seed=1234 A_list=seq(0.2,1,0.2) ncores=15 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R knockoff_randomForest_1028.Rout
+# knockoff_ordinalForest
+R CMD BATCH '--args method="knockoff" statistic="ordinalForest" seed=1234 A_list=seq(0.2,1,0.2) ncores=15 nIteration=30 q_t1e=0.005 rho=0.2' all_in_one_simul.R knockoff_ordinalForest_1028.Rout
 
 # knockoff_Bayesian02_1
 R CMD BATCH '--args method="knockoff" statistic="Bayesian" seed=1 A_list=0.2 ncores=10 nIteration=10 q_t1e=0.005 rho=0.2' all_in_one_simul.R knockoff_Bayesian02_1_1028.Rout
@@ -300,8 +300,8 @@ R CMD BATCH '--args method="rdvs" statistic="cv" q_t1e=0.005 ncores=20' all_in_o
 # rdvs_mboost
 R CMD BATCH '--args method="rdvs" statistic="mboost" q_t1e=0.005 ncores=25' all_in_one.R real_rdvs_mboost_1028.Rout
 
-# rdvs_randomForest
-R CMD BATCH '--args method="rdvs" statistic="randomForest" q_t1e=0.005 ncores=25' all_in_one.R real_rdvs_randomForest_1028.Rout
+# rdvs_ordinalForest
+R CMD BATCH '--args method="rdvs" statistic="ordinalForest" q_t1e=0.005 ncores=25' all_in_one.R real_rdvs_ordinalForest_1028.Rout
 
 # knockoff_AIC
 R CMD BATCH '--args method="knockoff" statistic="AIC" q_t1e=0.005 ncores=1’ all_in_one.R real_knockoff_AIC_1028.Rout
@@ -318,5 +318,5 @@ R CMD BATCH '--args method="knockoff" statistic="cv" q_t1e=0.005 ncores=1' all_i
 # knockoff_mboost
 R CMD BATCH '--args method="knockoff" statistic="mboost" q_t1e=0.005 ncores=1' all_in_one.R real_knockoff_mboost_1028.Rout
 
-# knockoff_randomForest
-R CMD BATCH '--args method="knockoff" statistic="randomForest" q_t1e=0.005 ncores=1' all_in_one.R real_knockoff_randomForest_1028.Rout
+# knockoff_ordinalForest
+R CMD BATCH '--args method="knockoff" statistic="ordinalForest" q_t1e=0.005 ncores=1' all_in_one.R real_knockoff_ordinalForest_1028.Rout
